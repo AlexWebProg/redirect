@@ -32,6 +32,7 @@ class urlProcessing
      * Функция получает $url сайта, пингует его и выдаёт массив полученных заголовков
      */
     function checkHeaders($url){
+        $url = idn_to_ascii($url);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
