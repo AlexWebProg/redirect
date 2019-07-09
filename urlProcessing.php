@@ -101,10 +101,12 @@ class urlProcessing
                 $arrCheckURLs[] = $strVar.$url;
                 if($strSameKey != $url){
                     $arrCheckURLs[] = $strVar.$strSameKey;
-                }elseif($strSameLetter != $url){
-                    $arrCheckURLs[] = $strVar.$strSameKey;
-                }elseif($strIdnToAscii != $url){
-                    $arrCheckURLs[] = $strVar.$strSameKey;
+                }
+                if($strSameLetter != $url){
+                    $arrCheckURLs[] = $strVar.$strSameLetter;
+                }
+                if($strIdnToAscii != $url){
+                    $arrCheckURLs[] = $strVar.$strIdnToAscii;
                 }
             }
             foreach($arrCheckURLs as $strUrl){
