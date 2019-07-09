@@ -29,6 +29,20 @@ class urlProcessing
     }
 
     /*
+     * Функция получает $url сайта, пингует его и выдаёт массив полученных заголовков
+     */
+    function checkHeaders($url){
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_exec($ch);
+        $arrAnswer = curl_getinfo($ch);
+        return $arrAnswer;
+    }
+
+    /*
      * Функция получает $url сайта, пингует его и выдаёт ответ: $arrResult['result','redirect_url']
      * result:
      * 1 - сайт доступен,
