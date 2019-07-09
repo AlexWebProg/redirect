@@ -99,14 +99,14 @@ class urlProcessing
             $arrVars = array('http://','http://www.','https://','https://www.');
             foreach($arrVars as $strVar){
                 $arrCheckURLs[] = $strVar.$url;
+                if($strIdnToAscii != $url){
+                    $arrCheckURLs[] = $strVar.$strIdnToAscii;
+                }
                 if($strSameKey != $url){
                     $arrCheckURLs[] = $strVar.$strSameKey;
                 }
                 if($strSameLetter != $url){
                     $arrCheckURLs[] = $strVar.$strSameLetter;
-                }
-                if($strIdnToAscii != $url){
-                    $arrCheckURLs[] = $strVar.$strIdnToAscii;
                 }
             }
             foreach($arrCheckURLs as $strUrl){
